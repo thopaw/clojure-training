@@ -25,3 +25,24 @@
 (+ 1 2 3 4)
 
 (eval (list + 1 2 3 4))
+
+(defn print-seq [s]
+  (if (seq s)
+    (do
+      (prn (first s))
+      (recur (rest s))
+    )
+  )
+)
+
+(print-seq [1 2 3 4])
+
+(defn print-name [dek-full-name]
+  (let [ [f m l] dek-full-name ]
+  (println "first: " f)
+  (println "middle: " m)
+  (println "last: " l)))
+
+(print-name ["a" "b" "c"])
+
+(print-name (list "a" "b" "c"))
