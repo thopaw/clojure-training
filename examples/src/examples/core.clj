@@ -76,3 +76,15 @@
   (println "first: " first)
   (println "middle: " middle)
   (println "last: " last))
+
+
+; count elements
+(count (list 1 2 3 4))
+(count {1 1, 2 2, 3 3})
+(count #{ 1 2 3 4 })
+(count "12345")
+
+; access collection elements
+([1 2 3 4] 3)
+({1 1, 2 2, 3 3} 2)
+(#{1 2 3 4} 2)
