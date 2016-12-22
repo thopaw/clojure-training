@@ -134,3 +134,8 @@
 ; convert collections
 (into #{} (range 100))
 (into [] (range 100))
+
+; kinds of maps
+(hash-map 1 1, 2 2, 3 3)
+(sorted-map 1 1, 2 2, 3 3)
+(array-map 1 1, 2 2, 3 3)
