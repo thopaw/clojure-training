@@ -88,3 +88,20 @@
 ([1 2 3 4] 3)
 ({1 1, 2 2, 3 3} 2)
 (#{1 2 3 4} 2)
+
+; use map as function
+(def args {1 1, 2 2, 3 3, 4 4})
+(fn [x] (x 2) args)
+
+; combine lists
+(cons 999 '(2 3 4))
+(cons 999 #{2 3 4})
+; cons of map :-|
+(cons 999 {1 1, 2 2, 3 3})
+
+; combine with conj - preserve collection type - and insert depends on type
+(conj '(2 3 4 5) 1) ; list to head
+(conj [ 2 3 4] 1) ; vector at tail
+(conj [ 2 3 4] 1 5 6 7) ; several items
+(conj { 1 1, 2 2, 3 3} [7 7]) ; map random position
+(conj #{ 1 2 3 4} 8 9) ; set random position
