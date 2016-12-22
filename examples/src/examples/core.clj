@@ -148,3 +148,10 @@
 (transient [])
 (transient {})
 (transient #{})
+
+(let [ v (transient [1 2 3])
+       w (loop [vl v, i 0]
+         (if (< i 10)
+          (recur (conj! vl (* i i)) (inc i))
+          vl))]
+       (persistent! w))
