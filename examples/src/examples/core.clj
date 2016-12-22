@@ -143,3 +143,8 @@
 ; sets
 (hash-set 1 2 3 4)
 (sorted-set 1 2 3 4)
+
+; mutable collections
+(transient [])
+(transient {})
+(transient #{})
