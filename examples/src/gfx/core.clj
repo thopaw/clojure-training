@@ -69,3 +69,17 @@
         (.fillRect gfx 0 0 x x)
         (recur (dec x)))))
       800))))
+
+
+(def frame-rect-gradient-sinus (draw-in-frame
+  (fn [gfx]
+    ((fn [x]
+      (if (pos? x)
+       (do
+        (.setColor gfx (java.awt.Color.
+          (mod x 255)
+          (mod (+ x 100) 255)
+          (mod (+ x 200) 255)))
+        (.fillOval gfx x (- 400 (* (Math/sin x) 400 ) ) 10 10)
+        (recur (dec x)))))
+      800))))
