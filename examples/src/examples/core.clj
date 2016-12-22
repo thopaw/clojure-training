@@ -15,6 +15,11 @@
     (catch Exception e (str "error: " e))
     (finally (println "returning"))))
 
-; Calls of t-c-f    
+; Calls of t-c-f
 (t-c-f (fn [] (println "hello")))
 (t-c-f (fn [] (throw  (Exception. "buh"))))
+
+
+(list 1 2 3 4)
+
+(+ 1 2 3 4)
