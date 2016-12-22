@@ -117,3 +117,20 @@
 (next (list)) ; evaluates to nil
 (rest (list 1 2 3 4))
 (rest (list)) ; evaluates to () empty list
+
+(seq [1 2 3 4]) ; creates a list
+(nth (list 1 2 3 4) 3)
+(reverse (list 1 2 3 4))
+
+; use list and vector as list
+; peek pop conj
+(peek (list 1 2 3 4))
+(pop (list 1 2 3 4))
+(conj (list 1 2 3 4) 0)
+(peek [1 2 3 4])
+(pop [1 2 3 4])
+(conj [1 2 3 4] 0)
+
+; convert collections
+(into #{} (range 100))
+(into [] (range 100))
