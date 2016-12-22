@@ -59,8 +59,20 @@
 (let [ [x & r] '(1 2 3 4)]  {:x x, :r r})
 
 ; de-constructs a map
-(def dek-map {:first "Donald", :middle "J", :last "Simpson"})
+; can be used for API parameters
+(def dek-map {:first "Homer", :middle "J", :last "Simpson"})
 (let [ {first :first, middle :middle, last :last} dek-map]
+  (println "first: " first)
+  (println "middle: " middle)
+  (println "last: " last))
+(let [ {:keys [first, middle, last]} dek-map]
+  (println "first: " first)
+  (println "middle: " middle)
+  (println "last: " last))
+
+; de-construction of array
+(def dek-arr ["Homer" "J" "Simpson"])
+(let [{first 0, middle 1, last 2} dek-arr]
   (println "first: " first)
   (println "middle: " middle)
   (println "last: " last))
