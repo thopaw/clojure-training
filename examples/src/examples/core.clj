@@ -105,3 +105,15 @@
 (conj [ 2 3 4] 1 5 6 7) ; several items
 (conj { 1 1, 2 2, 3 3} [7 7]) ; map random position
 (conj #{ 1 2 3 4} 8 9) ; set random position
+
+
+; lazy collections
+(range 10000) ; list from o to 10000-1
+(seq (range 10000)) ; EAGER - all is evaluated
+
+; iterate over lists
+(first (list 1 2 3 4))
+(next (list 1 2 3 4))
+(next (list)) ; evaluates to nil
+(rest (list 1 2 3 4))
+(rest (list)) ; evaluates to () empty list
