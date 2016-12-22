@@ -139,3 +139,7 @@
 (hash-map 1 1, 2 2, 3 3)
 (sorted-map 1 1, 2 2, 3 3)
 (array-map 1 1, 2 2, 3 3)
+
+; sets
+(hash-set 1 2 3 4)
+(sorted-set 1 2 3 4)
