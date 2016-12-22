@@ -23,7 +23,6 @@
         (paint-fn gfx)
         frame)))
 
-
 (def frame-rect (draw-in-frame
               (fn [gfx]
                 (do
@@ -83,3 +82,27 @@
         (.fillOval gfx x (- 400 (* (Math/sin x) 400 ) ) 10 10)
         (recur (dec x)))))
       800))))
+
+
+(defn draw-in-frame-with-functions [paint-fns]
+  "creates a frame and uses the methods pain-fns to draw in the frame.
+  The Frame is retuned."
+  (let [frame (doto (javax.swing.JFrame.)
+                (.setSize (java.awt.Dimension. 800 800))
+                (.setVisible true)
+                (.show))
+        gfx (.getGraphics frame)]
+      (Thread/sleep 200)
+      ((fn [fns]
+        (if (not-empty fns)
+          (do
+            ((first fns) gfx)
+            (recur (rest fns)
+        )))) paint-fns)
+        frame))
+
+; draws a simple circle
+(draw-in-frame-with-functions [
+  (fn [gfx] (.setColor gfx (java.awt.Color. 100 100 100)))
+  (fn [gfx] (.fillOval gfx 200 200 100 100))
+  ])
