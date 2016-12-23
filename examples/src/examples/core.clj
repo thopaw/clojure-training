@@ -242,3 +242,5 @@
 (def plus5 (partial + 5))
 (plus5 5)
 (plus5 10)
+(plus5 5 10)
+(plus5)
