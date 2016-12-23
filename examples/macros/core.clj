@@ -11,3 +11,7 @@
   (list op2 op1 op3))
 
 (infix-2 (3 + 4))
+
+; shows to what compiler expands macro
+(macroexpand '(when true 3 4))
+(macroexpand '(infix-2 (3 + 4)))
