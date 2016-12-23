@@ -212,3 +212,9 @@
 ; cycle and repeat
 (take 7 (cycle [1 2 3]))
 (take 5 (repeat "Hello"))
+
+
+; pipelines
+(->> (range 100) (map (fn [x] (* x x x))) (filter odd?))
+(-> 3 (+ 5) (/ 3)) ; use parameter as head
+(->> 3 (+ 5) (/ 3)) ; use parameter as tail
