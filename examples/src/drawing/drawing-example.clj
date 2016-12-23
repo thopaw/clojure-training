@@ -1,4 +1,6 @@
-(load-file "drawing-lib.clj")
+(ns drawing.drawing-example)
+
+;(load-file "drawing-lib.clj")
 
 (def frame (make-frame))
 

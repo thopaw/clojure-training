@@ -1,3 +1,5 @@
+(ns drawing.math-functions)
+
 ; 90 degrees:
 (def PI_HALF (/ Math/PI 2))
 ; 60 degrees:
@@ -34,7 +36,7 @@
 
 ; s = (zz+1)/(2z) -> zz -2sz + 1
 ; z = s +- (sqrt ss-1)
-; 
+;
 
 (defn asinh [x] (Math/log (+ s (Math/sqrt (+ (* s s) 1)))))
 (defn acosh [x] (Math/log (+ s (Math/sqrt (- (* s s) 1)))))
@@ -49,8 +51,8 @@
 (defn abs [x] (Math/abs x))
 
 (defn atan2 [x y] (if (and (zero? x) (zero? y)) 0
-                      (let [xx (abs x) 
-                            yy (abs y) 
+                      (let [xx (abs x)
+                            yy (abs y)
                             qa (cond
                                  (zero? yy) 0
                                  (zero? xx) PI_HALF
@@ -63,7 +65,7 @@
                           (and (< x 0) (< y 0)) (+ Math/PI qa)
                           :else (- DOUBLE_PI qa)))))
 
-(defn hyp [x y] (Math/sqrt (+ (* x x) (* y y))))                                 
+(defn hyp [x y] (Math/sqrt (+ (* x x) (* y y))))
 
 (defn expi [[x y]]
   (let [r (Math/exp x)]

@@ -1,7 +1,9 @@
-(load-file "math-functions.clj")
+(ns drawing.drawing-lib [:require [drawing.math-functions]])
+
+;(load-file "math-functions.clj")
 
 (defn make-frame []
-  (let [frame 
+  (let [frame
 	    (doto (javax.swing.JFrame.)
             (.setSize (java.awt.Dimension. 1000 1000))
             (.setVisible true))]
@@ -12,7 +14,7 @@
        (loop [remaining-draw-functions draw-functions]
            (when remaining-draw-functions
                 ((first remaining-draw-functions) gfx)
-                (recur 
+                (recur
                   (next remaining-draw-functions))))))
 
 (defn draw-function-color-circle [fun divisor gfx]
@@ -29,4 +31,3 @@
                          color (java.awt.Color. r g b)]
                          (.setColor gfx color)
                          (.fillRect gfx x y 1 1)))))
-
