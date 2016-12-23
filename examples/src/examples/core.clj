@@ -218,3 +218,10 @@
 (->> (range 100) (map (fn [x] (* x x x))) (filter odd?))
 (-> 3 (+ 5) (/ 3)) ; use parameter as head
 (->> 3 (+ 5) (/ 3)) ; use parameter as tail
+
+; Higher order functions - lexical/static scoping
+(defn adder [x] (fn [y] (+ x y)))
+(def add3 (adder 3))
+(def add6 (adder 6))
+(add3 3)
+(add6 3)
