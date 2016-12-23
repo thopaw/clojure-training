@@ -225,3 +225,20 @@
 (def add6 (adder 6))
 (add3 3)
 (add6 3)
+
+
+; built in higher order functions
+; constantly - fixes a value to a function
+(def e (constantly Math/E))
+(e)
+(e 1)
+(e 12 3 43254)
+
+; comp - builds
+((comp add3 add6) 5)
+(-> 5 add3 add6 constantly) ; to build a comp function with pipe
+
+; partial - builds a partial function
+(def plus5 (partial + 5))
+(plus5 5)
+(plus5 10)
