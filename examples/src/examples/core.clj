@@ -173,3 +173,24 @@
 ; reduce
 (reduce + 0 (range 10))
 (reduce + 0 ())
+(reduce str "" (list 1 2 3 4))
+(reduce (fn [x y] (str x "-" y)) "" (range 100))
+; without start reduce uses the 1st two elements
+(reduce + (range 10))
+
+; filter
+(filter odd? (range 20))
+(filter even? (range 20))
+
+; maps and uses vector
+(mapv inc (range 10))
+
+; maps in parallel
+(pmap dec (range 100))
+
+; flatmap
+(map (fn [x] (list 1 x (* x x))) (range 5))
+(mapcat (fn [x] (list 1 x (* x x))) (range 5))
+
+; group-by
+(group-by (fn [x] (mod x 3)) (range 12))
