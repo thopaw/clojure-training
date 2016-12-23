@@ -194,3 +194,14 @@
 
 ; group-by
 (group-by (fn [x] (mod x 3)) (range 12))
+
+; apply
+(apply min [3 4 5 6 7])
+
+; fak with apply
+(defn fact [n]
+  (apply *' (range 1 (inc n))))
+(fact 5)
+
+; do for sequence aka forEach
+(doseq [x (range 100)] (println x))
