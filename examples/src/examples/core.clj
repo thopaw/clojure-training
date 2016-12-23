@@ -77,6 +77,14 @@
   (println "middle: " middle)
   (println "last: " last))
 
+; collect rest during de-construction
+(let [
+  my-map {:first "Homer", :last "Simpson", :a "a", :b "b"}
+  {first :first, last :last, :as rest } my-map]
+  (println "first : " first)
+  (println "last : " last)
+  (println "rest : " rest)
+  nil)
 
 ; count elements
 (count (list 1 2 3 4))
@@ -155,3 +163,13 @@
           (recur (conj! vl (* i i)) (inc i))
           vl))]
        (persistent! w))
+
+; map
+(map (fn [x] (*' x x x)) (list 1 2 3 4 5))
+(map (fn [x] (*' x x x)) [1 2 3 4 5])
+(map (fn [x] (*' x x x)) #{1 2 3 4 5})
+(take 10 (map (fn [x] (*' x x x)) (range 1000))) ; respects lazynes
+
+; reduce
+(reduce + 0 (range 10))
+(reduce + 0 ())

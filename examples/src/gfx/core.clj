@@ -106,3 +106,31 @@
   (fn [gfx] (.setColor gfx (java.awt.Color. 100 100 100)))
   (fn [gfx] (.fillOval gfx 200 200 100 100))
   ])
+
+
+(defn set-color [gfx x]
+  "sets color in the gfx"
+  (.setColor gfx (java.awt.Color.
+    (mod x 255)
+    (mod (+ x 100) 255)
+    (mod (+ x 200) 255))))
+
+(defn rainbow-color [gfx x amplitude center]
+  (let [
+    calc (fn [shift] (+ (* (Math/sin (+ x shift)) amplitude) center))
+    third-pi (/ (Math/PI) 3)
+    r (calc (* third-pi 0))
+    g (calc (* third-pi 2))
+    b (calc (* third-pi 4))]
+    (.setColor gfx (java.awt.Color. r g b))))
+
+(draw-in-frame-with-functions [
+  (fn [gfx] (
+    (loop [x 0]
+      (if (>= 800)
+        (do
+          (rainbow-color gfx x (/ 255 2) (/ 255 2))
+          (.drawLine gfx x 0 x 800)
+          (recur (inc x)))
+      ))))
+  ])
