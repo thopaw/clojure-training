@@ -205,3 +205,10 @@
 
 ; do for sequence aka forEach
 (doseq [x (range 100)] (println x))
+
+; build lazy collections with iterate
+(take 10 (iterate (fn [x] (* x 1.5)) 1))
+
+; cycle and repeat
+(take 7 (cycle [1 2 3]))
+(take 5 (repeat "Hello"))
